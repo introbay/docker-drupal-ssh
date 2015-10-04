@@ -1,6 +1,6 @@
 # sshd
 #
-# VERSION               0.0.2
+# VERSION               0.0.3
 
 FROM ubuntu:14.04
 
@@ -27,6 +27,12 @@ ENV TERM xterm
 RUN apt-get update && apt-get install -y git curl
 RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o /root/git-completion.bash
 RUN echo "source /root/git-completion.bash" >> /root/.bashrc
+
+# Set the locale
+RUN locale-gen es_ES.UTF-8  
+ENV LANG es_ES.UTF-8  
+ENV LANGUAGE es_ES:en  
+ENV LC_ALL es_ES.UTF-8
 
 WORKDIR /var/www/html
 
