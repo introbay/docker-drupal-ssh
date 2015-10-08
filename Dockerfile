@@ -19,7 +19,12 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 RUN echo "AllowUsers drupal"
 
 # Instalamos las herramientas necesarias para desarrollo y despliegue
-RUN apt-get update && apt-get install -y build-essential ruby-full bundler nano vim
+RUN apt-get update && apt-get install -y build-essential ruby-full bundler nano vim php-pear
+
+# Install drush by using pear
+RUN pear channel-discover pear.drush.org \
+	&& pear install drush/drush \
+	&& pear upgrade drush/drush
 
 ENV TERM xterm
 
