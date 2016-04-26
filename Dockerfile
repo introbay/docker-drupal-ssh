@@ -1,6 +1,6 @@
 # sshd
 #
-# VERSION               0.0.4
+# VERSION               1.0
 
 FROM ubuntu:14.04
 
@@ -17,9 +17,6 @@ RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so
 ENV NOTVISIBLE "in users profile"
 RUN echo "export VISIBLE=now" >> /etc/profile
 RUN echo "AllowUsers drupal"
-
-# Instalamos las herramientas necesarias para desarrollo y despliegue
-RUN apt-get update && apt-get install -y build-essential ruby-full bundler nano vim php-pear
 
 ENV TERM xterm
 
