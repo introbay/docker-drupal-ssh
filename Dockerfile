@@ -23,11 +23,6 @@ RUN apt-get update && apt-get install -y build-essential ruby-full bundler nano 
 
 ENV TERM xterm
 
-# Añadimos git
-RUN apt-get update && apt-get install -y git curl
-RUN curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o /root/git-completion.bash
-RUN echo "source /root/git-completion.bash" >> /root/.bashrc
-
 # Set the locale
 RUN locale-gen es_ES.UTF-8  
 ENV LANG es_ES.UTF-8  
