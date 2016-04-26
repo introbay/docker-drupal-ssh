@@ -1,1 +1,0 @@
-docker build -t introbay/ssh:0.0.2 .
