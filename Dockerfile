@@ -5,6 +5,7 @@
 FROM ubuntu:14.04
 
 RUN apt-get update && apt-get install -y openssh-server && \
+	rm -rf /var/lib/apt/lists/* && \
 	mkdir /var/run/sshd
 
 RUN usermod www-data -s /bin/bash -d /var/www/html && \
