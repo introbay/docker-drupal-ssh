@@ -28,5 +28,9 @@ ENV LC_ALL es_ES.UTF-8
 
 WORKDIR /var/www/html
 
+ADD ./ssh-wrapper.sh /root/ssh-wrapper.sh
+RUN chmod u+x /root/ssh-wrapper.sh
+
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+
+CMD ["/root/ssh-wrapper.sh"]
